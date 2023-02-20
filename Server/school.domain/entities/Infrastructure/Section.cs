@@ -4,14 +4,21 @@ namespace school.domain.entities;
 public class Section
 {
   public int Id { get; private set; }
+  public string Name { get; private set; } = string.Empty;
   public HashSet<ClassRoom> Classes { get; private set; } = new();
 
-  public Section(HashSet<ClassRoom> classes)
+  public Section(string name, HashSet<ClassRoom> classes)
   {
+    Name = name;
     Classes = classes;
   }
 
   private Section() { }
+
+  public void SetName(string name)
+  {
+    Name = name;
+  }
 
   public void AddClass(ClassRoom classRoom)
   {
