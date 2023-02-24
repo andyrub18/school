@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\RAnderson\\Documents\\Academique\\school\\school.domain\\school.domain.csproj": {}
+    "C:\\Users\\RAnderson\\Documents\\Academique\\school\\Server\\school.domain\\school.domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\RAnderson\\Documents\\Academique\\school\\school.domain\\school.domain.csproj": {
+    "C:\\Users\\RAnderson\\Documents\\Academique\\school\\Server\\school.domain\\school.domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\RAnderson\\Documents\\Academique\\school\\school.domain\\school.domain.csproj",
+        "projectUniqueName": "C:\\Users\\RAnderson\\Documents\\Academique\\school\\Server\\school.domain\\school.domain.csproj",
         "projectName": "school.domain",
-        "projectPath": "C:\\Users\\RAnderson\\Documents\\Academique\\school\\school.domain\\school.domain.csproj",
+        "projectPath": "C:\\Users\\RAnderson\\Documents\\Academique\\school\\Server\\school.domain\\school.domain.csproj",
         "packagesPath": "C:\\Users\\RAnderson\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\RAnderson\\Documents\\Academique\\school\\school.domain\\obj\\",
+        "outputPath": "C:\\Users\\RAnderson\\Documents\\Academique\\school\\Server\\school.domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\RAnderson\\AppData\\Roaming\\NuGet\\NuGet.Config",

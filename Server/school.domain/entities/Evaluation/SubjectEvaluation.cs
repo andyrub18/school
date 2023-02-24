@@ -6,9 +6,13 @@ public class SubjectEvaluation
   public List<Exam> Exams { get; private set; } = new();
   public Period Period { get; init; }
 
+  ///<summary>Create a new instance of period evaluation for a subject</summary>
+  ///<param name="period">The period of the evaluations</param>
+  ///<param name="subject">The subject we will have evaluations for</param>
+  ///<returns>A new period evaluation</returns>
   public SubjectEvaluation(Period period, ClassSubject subject)
   {
-    if (Period is null)
+    if (period is null)
       throw new Exception("Preciser la periode de vos tests");
     if (subject is null)
       throw new Exception("Les evaluation pour une periode se font pour une matiere bien definie");
@@ -16,8 +20,21 @@ public class SubjectEvaluation
     Period = period;
   }
 
+  private SubjectEvaluation()
+  {
+    if (Period is null)
+      throw new Exception("Preciser la periode de vos tests");
+    if (Subject is null)
+      throw new Exception("Les evaluation pour une periode se font pour une matiere bien definie");
+  }
+
+  ///<summary>Add an exam for this period evaluation</summary>
+  ///<param name="exam">The exam we want to add for the period</param>
+  ///<exception>The total percentage mustn't be greater than 100% when you add exams</exception>
   public void AddExam(Exam exam)
   {
+    if (Exams.Sum(x => x.Percentage) + exam.Percentage > 1)
+      throw new Exception("La somme des pourcentages a deja depasse 100%. Reverifiez les pourcentages de vos examens");
     Exams.Add(exam);
   }
 
