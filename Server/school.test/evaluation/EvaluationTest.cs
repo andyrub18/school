@@ -17,22 +17,25 @@ public class EvaluationTest
     {
       classroom.Students.Add(new Student(Faker.Name.First(), Faker.Name.Middle(), Faker.Name.Last(), new DateOnly(random.Next(2002, 2004), random.Next(1, 12), random.Next(1, 27)), "Port-au-Prince", "Andy"));
     }
+
+    // 2) Let's fake our subjects
+    classroom.AddSubject(new ClassSubject("Mathematiques 4AF", 20, classroom));
+    classroom.AddSubject(new ClassSubject("Francais 4AF", 20, classroom));
+    classroom.AddSubject(new ClassSubject("anglais 4AF", 10, classroom));
+    classroom.AddSubject(new ClassSubject("catechese 4AF", 10, classroom));
   }
 
-  [Fact]
-  public void SubjectEvaluation_SubjectMeanForPeriod_returnsdouble()
+  private SubjectEvaluation createSubjectEvaluationAndAddNote(Period period, ClassSubject subject)
   {
-    //Arrange
-    // 1) Let's create our exams and add note for each student
-    var exams = new List<Exam>()
-    {
-      new Exam(new DateOnly(2022, random.Next(1, 3), random.Next(1, 27)), 10, 0.3),
-      new Exam(new DateOnly(2022, random.Next(1, 3), random.Next(1, 27)), 10, 0.3),
-      new Exam(new DateOnly(2022, random.Next(1, 3), random.Next(1, 27)), 10, 0.4)
-    };
+    var evaluation = new SubjectEvaluation(period, subject);
 
-    // 2) Let's give each students note
-    foreach (var exam in exams)
+    for (var i = 0; i < 3; i++)
+    {
+      evaluation.AddExam(new Exam(new DateOnly(2022, random.Next(1, 3), random.Next(1, 27)), 10, 0.3));
+    }
+
+    // 4) Let's give each students note
+    foreach (var exam in evaluation.Exams)
     {
       foreach (var student in classroom.Students)
       {
@@ -40,18 +43,18 @@ public class EvaluationTest
       }
     }
 
-    // 3) Let's make a classSubject
-    var subject = new ClassSubject("Mathematiques 4AF", 20, classroom);
+    return evaluation;
+  }
 
-    // 4) Let's make a period
+  [Fact]
+  public void SubjectEvaluation_SubjectMeanForPeriod_returnsdouble()
+  {
+    //Arrange
+    // 1) Let's make a period
     var period = new Period("1er semestre", new DateOnly(2022, 1, 1), new DateOnly(2022, 3, 27), 0.3);
 
-    // 5) Let's make the evaluation
-    var evaluation = new SubjectEvaluation(period, subject);
-    foreach (var exam in exams)
-    {
-      evaluation.AddExam(exam);
-    }
+    // 3) Let's make an evaluation and his exams
+    var evaluation = createSubjectEvaluationAndAddNote(period, classroom.Subjects.ToList()[random.Next(0, 3)]);
 
     //Act
     var resultStudent = evaluation.MeanForStudentPerPeriod(classroom.Students.ToList()[random.Next(1, 20)]);
@@ -68,10 +71,24 @@ public class EvaluationTest
   public void ClassRoom_GeneralMeanForPeriod_ReturnsDouble()
   {
     // Arrange
+    // 1) Let's make a period
+    var period = new Period("1er semestre", new DateOnly(2022, 1, 1), new DateOnly(2022, 3, 27), 0.3);
+
+    // 2) Let's make the evaluations and their exams
+    foreach (var subject in classroom.Subjects)
+    {
+      subject.AddEvaluation(createSubjectEvaluationAndAddNote(period, subject));
+    }
 
     // Act
+    var resultStudent = classroom.GetStudentScoreForPeriod(classroom.Students.ToList()[random.Next(1, 20)], period);
+    var resultClass = classroom.GetClassScoreForPeriod(period);
 
     // Assert
+    resultStudent.Should().BePositive();
+    resultStudent.Should().BeLessThanOrEqualTo(1);
+    resultClass.Should().BePositive();
+    resultClass.Should().BeLessThanOrEqualTo(1);
   }
 
   [Fact]
