@@ -43,8 +43,8 @@ public class SubjectEvaluation
   /// <returns>The mean percentage of the max credit</returns>
   public double MeanForStudentPerPeriod(Student student)
   {
-    if (!Subject.ClassRoom.Students.Contains(student))
-      throw new Exception("Cet étudiant n'est pas dans la classe qui offre cette matiere");
+    // if (!Subject.ClassRoom.Students.Contains(student))
+    //   throw new Exception("Cet étudiant n'est pas dans la classe qui offre cette matiere");
     List<double> notes = new();
     Exams.ForEach(x =>
     {
@@ -57,7 +57,7 @@ public class SubjectEvaluation
       }
     });
 
-    return notes.Sum(x => x);
+    return notes.Sum(x => x / 100);
   }
 
   /// <summary>Compute the mean for an entire class on a period for a class subject</summary>

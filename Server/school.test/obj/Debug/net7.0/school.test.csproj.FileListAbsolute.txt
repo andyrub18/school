@@ -106,3 +106,5 @@ C:\Users\RAnderson\Documents\Academique\school\Server\school.test\obj\Debug\net7
 C:\Users\RAnderson\Documents\Academique\school\Server\school.test\obj\Debug\net7.0\school.test.pdb
 C:\Users\RAnderson\Documents\Academique\school\Server\school.test\obj\Debug\net7.0\school.test.genruntimeconfig.cache
 C:\Users\RAnderson\Documents\Academique\school\Server\school.test\obj\Debug\net7.0\ref\school.test.dll
+c:\Users\RAnderson\Documents\Academique\school\Server\school.test\bin\Debug\net7.0\Faker.Net.6.0.dll
+c:\Users\RAnderson\Documents\Academique\school\Server\school.test\bin\Debug\net7.0\de-DE\Faker.Net.6.0.resources.dll

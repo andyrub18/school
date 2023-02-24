@@ -18,10 +18,11 @@ public class Exam
   {
     if (maxCredit <= 0)
       throw new Exception("Entrez une note maximale valide votre test");
-    if (percentage < 0)
+    if (percentage < 0 || percentage > 1)
       throw new Exception("Entrez un pourcentage valide pour votre test");
     ExamDate = examDate;
     MaxCredit = maxCredit;
+    Percentage = percentage;
   }
 
   private Exam() { }
@@ -31,6 +32,15 @@ public class Exam
   public void SetExamDate(DateOnly examDate)
   {
     ExamDate = examDate;
+  }
+
+  ///<summary>Update the percentage of the exam</summary>
+  ///<param name="percentage">The new percentage</param>
+  public void SetPercentage(double percentage)
+  {
+    if (percentage < 0 || percentage > 1)
+      throw new Exception("fournissez un coefficient qui aie du sens s'il vous plait");
+    Percentage = percentage;
   }
 
   //TODO: Gerer les constantes donnees par les profs

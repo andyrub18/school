@@ -6,7 +6,7 @@ public class Period
   public string Title { get; set; } = string.Empty;
   public DateOnly Beginning { get; private set; }
   public DateOnly Ending { get; private set; }
-  public float Percentage { get; private set; }
+  public double Percentage { get; private set; }
 
   ///<summary>Create a new instance of a period</summary>
   ///<param name="title">The title of the period</param>
@@ -14,7 +14,7 @@ public class Period
   ///<param name="ending">The ending date of the school period</param>
   ///<param name="percentage">The percentage of the period. The coefficients we use for compute the final score</param>
   ///<returns>A new instance of period</returns>
-  public Period(string title, DateOnly beginning, DateOnly ending, float percentage)
+  public Period(string title, DateOnly beginning, DateOnly ending, double percentage)
   {
     if (percentage < 0 || percentage > 1)
       throw new Exception("Fournissez un coefficient qui aie du sens s'il vous plait");
@@ -30,7 +30,7 @@ public class Period
 
   ///<summary>Update the percentage of the school period</summary>
   ///<param name="percentage">The new percentage</param>
-  public void SetPercentage(float percentage)
+  public void SetPercentage(double percentage)
   {
     if (percentage < 0 || percentage > 1)
       throw new Exception("fournissez un coefficient qui aie du sens s'il vous plait");
