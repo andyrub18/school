@@ -9,6 +9,9 @@ public class Teacher
   public List<string> Qualifications { get; private set; }
   public HashSet<ClassSubject> Subjects { get; private set; } = new();
 
+  ///<summary>Create a new teacher instance</summary>
+  ///<param name="qualifications">A list of the qualifications of the teacher</param>
+  ///<returns>A new teacher object</returns>
   public Teacher(string firstName, string? middleName, string lastName, List<string> qualifications)
   {
     if (String.IsNullOrEmpty(firstName) || String.IsNullOrEmpty(lastName))
