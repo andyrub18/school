@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "school.domain", "school.dom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "school.test", "school.test\school.test.csproj", "{62FE1F7A-DE49-4A38-9467-F9C95E126D31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "school.data", "school.data\school.data.csproj", "{47A210B7-3139-4AC7-A44C-07C6DE5CCF80}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "school.api", "school.api\school.api.csproj", "{90A564BB-E446-4E4E-A1D2-2D1F6D007E1A}"
 EndProject
 Global

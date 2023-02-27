@@ -1,4 +1,4 @@
-namespace school.domain.entities.Discipline;
+namespace school.domain.entities;
 
 public class DisciplinaryRecord
 {

@@ -1,4 +1,4 @@
-namespace school.domain.entities.Users;
+namespace school.domain.entities;
 
 public class Assistant
 {

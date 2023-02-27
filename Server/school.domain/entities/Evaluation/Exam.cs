@@ -55,6 +55,8 @@ public class Exam
   ///<exception>Can't assign a note greater than maxCredit</exception>
   public void AddNote(Student student, double note)
   {
+    if (Notes.ContainsKey(student))
+      throw new Exception("Cet etudiant a deja une note pour ce test");
     if (note > MaxCredit)
       throw new Exception("L'étudiant a une note supérieur à la note maximale");
     // TODO: Gérer le cas des notes négatives après

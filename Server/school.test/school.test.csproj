@@ -26,7 +26,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\school.domain\school.domain.csproj" />
-    <ProjectReference Include="..\school.data\school.data.csproj" />
     <ProjectReference Include="..\school.api\school.api.csproj" />
   </ItemGroup>
 
