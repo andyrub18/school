@@ -17,7 +17,7 @@ public class Teacher
     if (String.IsNullOrEmpty(firstName) || String.IsNullOrEmpty(lastName))
       throw new Exception("Tu dois fournir le nom complet du professeur");
     if (qualifications.Count == 0)
-      throw new Exception("votre prof doit avoir au moins une qualifications");
+      throw new Exception("votre prof doit avoir au moins une qualification");
     FirstName = firstName;
     MiddleName = middleName;
     LastName = lastName;
